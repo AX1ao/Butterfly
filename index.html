@@ -7,21 +7,24 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
-        body { 
-            margin: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            background-color: #000; 
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden; /* Ensure no scrollbars appear */
         }
         #unity-container {
-            width: 90vw;
-            height: 90vh;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #000;
+            padding: 20px; /* Add padding to ensure canvas is not cut off */
+            box-sizing: border-box; /* Ensure padding is included in the total width/height */
         }
         #unity-canvas {
             width: 100%;
@@ -93,6 +96,8 @@
             container.className = "unity-mobile";
             canvas.className = "unity-mobile";
 
+            // To lower canvas resolution on mobile devices to gain some performance, uncomment the following line:
+            // config.devicePixelRatio = 1;
         } else {
             canvas.style.width = "100%";
             canvas.style.height = "auto";
